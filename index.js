@@ -35,11 +35,7 @@ app.get("/api/hello", (req, res) => {
 });
 
 app.get("/api/auth", (req, res) => {
-  res.cookie("auth", "true", {
-    httpOnly: true,
-    sameSite: "strict",
-    secure: true,
-  });
+  res.cookie("auth", "true");
   res.status(200).json({ message: "Hello from the server!" });
 });
 
