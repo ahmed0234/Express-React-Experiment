@@ -35,7 +35,12 @@ app.get("/api/hello", (req, res) => {
 });
 
 app.get("/api/auth", (req, res) => {
-  res.cookie("auth", "true");
+  res.cookie("auth", "true", {
+    httpOnly: true, // Prevent access to the cookie via JavaScript
+    secure: true, // Required for HTTPS (use false if testing locally on HTTP)
+    sameSite: "strict", // Required for cross-origin cookies
+    maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days in milliseconds
+  });
   res.status(200).json({ message: "Hello from the server!" });
 });
 
