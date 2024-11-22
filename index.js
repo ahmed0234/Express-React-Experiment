@@ -1,4 +1,4 @@
-import express from "express";
+import express, { urlencoded } from "express";
 import cookieParser from "cookie-parser";
 
 const app = express();
@@ -7,6 +7,7 @@ const PORT = 3000;
 app.use(express.static("dist"));
 app.use(express.json());
 app.use(cookieParser());
+app.use(urlencoded({ extended: true }));
 
 const items = [
   {
@@ -38,7 +39,7 @@ app.get("/api/auth", (req, res) => {
   res.cookie("junky", "tralalalai", {
     httpOnly: true, // Prevent access to the cookie via JavaScript
     secure: true, // Required for HTTPS (use false if testing locally on HTTP)
-    sameSite: "None", // Required for cross-origin cookies
+    sameSite: "lax",
     maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days in milliseconds
   });
   res.status(200).json({ message: "Hello from the server!" });
