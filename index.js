@@ -25,6 +25,11 @@ const items = [
     price: "$300",
     description: "A versatile tablet for multitasking and entertainment.",
   },
+  {
+    name: "Tablet",
+    price: "$300",
+    description: "A versatile tablet for multitasking and entertainment.",
+  },
 ];
 
 app.get("/api/items", (req, res) => {
