@@ -35,7 +35,7 @@ app.get("/api/hello", (req, res) => {
 });
 
 app.get("/api/auth", (req, res) => {
-  res.cookie("auth", "true", {
+  res.cookie("junky", "tralalalai", {
     httpOnly: true, // Prevent access to the cookie via JavaScript
     secure: true, // Required for HTTPS (use false if testing locally on HTTP)
     sameSite: "None", // Required for cross-origin cookies
